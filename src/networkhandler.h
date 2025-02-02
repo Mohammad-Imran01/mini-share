@@ -43,6 +43,9 @@ public:
     DeviceType deviceType() const;
     void setDeviceType(const DeviceType &newDeviceType);
 
+    Q_INVOKABLE ReceiverHandler* getReceiverHandler() { return m_recieverHandler; }
+    Q_INVOKABLE SendHandler* getSendHandler() {return m_sendHandler; }
+
 signals:
     void deviceTypeChanged();
     void serverPortChanged(int);

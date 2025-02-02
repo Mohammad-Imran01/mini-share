@@ -24,6 +24,7 @@ qt_add_qml_module(appmini-share
         SOURCES src/gui/mainwindow.cpp src/gui/mainwindow.h
         QML_FILES ui/common/CxHamburger.qml ui/main.qml
         QML_FILES ui/common/CxButton.qml
+        QML_FILES ui/common/CxAboutNetwork.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
