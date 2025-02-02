@@ -4,7 +4,7 @@ project(mini-share VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
+find_package(Qt6 6.4 REQUIRED COMPONENTS Quick Network)
 
 qt_standard_project_setup()
 
@@ -16,7 +16,14 @@ qt_add_qml_module(appmini-share
     URI mini-share
     VERSION 1.0
     QML_FILES
-        Main.qml
+
+        SOURCES src/networkhandler.h src/networkhandler.cpp
+        SOURCES src/receiverhandler.h src/receiverhandler.cpp
+        SOURCES src/sendhandler.h src/sendhandler.cpp
+        SOURCES src/gui/mainwindow.h src/gui/mainwindow.cpp
+        SOURCES src/gui/mainwindow.cpp src/gui/mainwindow.h
+        QML_FILES ui/common/CxHamburger.qml ui/main.qml
+        QML_FILES ui/common/CxButton.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -31,7 +38,7 @@ set_target_properties(appmini-share PROPERTIES
 )
 
 target_link_libraries(appmini-share
-    PRIVATE Qt6::Quick
+    PRIVATE Qt6::Quick Qt6::Network
 )
 
 include(GNUInstallDirs)
